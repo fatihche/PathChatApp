@@ -1,0 +1,108 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Nick Name</label>
+                        <input type="text" class="form-control" id="recipient-name">
+                    </div>
+                    
+                </form>
+            </div>
+            <div class="modal-footer">
+                
+                <button type="button" class="btn btn-primary" id="joinChat">Join</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="wrapper wrapper-content animated fadeInRight" id="chatApp" style="display:none">
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox chat-view">
+                
+                <div class="ibox-content">
+                    <div class="row">
+
+                        <div class="col-md-2">
+                            <div class="chat-users">
+
+
+                                <div class="users-list" data-bind="foreach: activeChannelList">
+                                    <div class="chat-user">
+
+                                        <a href="#" data-bind="text: $data.id" style="display:none"></a>
+                                        <div class="chat-user-name">
+                                            <a href="#" data-bind="text: $data.name"></a>
+                                            <a href="#" data-bind="text: $data.userMessages().length"></a>
+                                         
+                                        </div>
+                                        
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-8 ">
+                            <div class="chat-discussion" id="chatSection" style="display:none">
+
+                                <div class="chat-message left" data-bind="foreach: messageList">
+                                   
+                                    <div class="message">
+                                        <a class="message-author" href="#"  data-bind="text: $data.name"> Alice Jordan </a>
+                                       
+                                        <span class="message-content" data-bind="text: $data.message" >
+                                           
+                                        </span>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <div class="col-lg-12" id="sendMessageSection" style="display:none">
+                                <div class="chat-message-form">
+                                    <div class="form-group">
+                                        <textarea class="form-control message-input" name="message" id="txtMessage" placeholder="Enter message text and press enter"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="button" id="sendGroupBtn" value="Send Message" />
+                                    </div>
+                                </div>
+                            </div>
+                          
+
+                        </div>
+                        <div class="col-md-2">
+                            <div class="chat-users">
+                                <div class="users-list" data-bind="foreach: allChannelList">
+                                    <div class="chat-user-d">
+                                       
+                                        <a href="#" data-bind="text: $data.id" style="display:none"></a>
+                                        <div class="chat-user-name">
+                                            <a href="#" data-bind="text: $data.name"></a>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
